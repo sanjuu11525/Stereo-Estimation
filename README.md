@@ -26,11 +26,11 @@ For outdoor scenes, a cost function proposed by K. Yamaguchi[1] behaves potentia
 on the KITTI benchmark. As already mentioned, the cost function can be replaced with the
 original one from Hirschmuller[2].
 
-\begin{equation*}
+$$\begin{equation*}
 C(p, d)=\sum_{s\in\Sigma_p}|D_{img}(s, e(s))−D_{img´}(s´(s, d), e(s))| + \rho_{census}H(\Phi_l(s), \Phi_r(s (s, d)))
-\end{equation*}
+$$\end{equation*}
 
-where $C(p, d)$ represents the evaluated cost by $p$ to the point with distance $d$. For a better
+where $$C(p, d)$$ represents the evaluated cost by $p$ to the point with distance $d$. For a better
 quality of matching, a local window $Ω$ surrounding pixel $p$ is created and $s$ represents the sub-
 pixel. $D_l(s, e(s))$ is the directional derivative of s along epipolar line $e(s)$ in the left image
 and $D_r(s{´}(s, d))$ represents candidate $s{´}(s, d)$ in the right image. Census transformation and
@@ -74,4 +74,5 @@ mkdir build; cd build; cmake ..; make -j
 
 ## Reference
 [1]http://ttic.uchicago.edu/~dmcallester/SPS/index.html
+
 [2]https://elib.dlr.de/73119/1/180Hirschmueller.pdf
