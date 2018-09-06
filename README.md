@@ -1,12 +1,15 @@
 
 # Stereo disparity Estimation
-The purpose of this project is to implement stereo estimation with Semi-Global Method. At the current stage, a few publications apply this method to stereo estimation. The pixel-wise cost function with Census transformation is involved. During cost computation, potential targets are selected based on mapping of corresponding epipolar geometry. In particular, the geometrical representation gives 1-D pixel-wise optimization. Afterward, aggregating cost by sweeping
+The purpose of this project is to implement disparity estimation with Semi-Global Method. At the current stage, a few publications apply this method to stereo estimation. The pixel-wise cost function with Census transformation is involved. During cost computation, potential targets are selected based on mapping of corresponding epipolar geometry. In particular, the geometrical representation gives 1-D pixel-wise optimization. Afterward, aggregating cost by sweeping
 the image domain is performed. 
 
-The implementation posted here is much for understanding sharing and education purpose. All work is from my interest of computer vision and without carefully refactoring.
+The implementation posted here is much for sharing experience to someone involving similar topics.. All work is from my interest of computer vision and without careful software refactoring.
 
 ## Basic Knowledge
-Variational methods, formulating energy in terms of data differences and regularizations, are popular in estimating the motion of observed structures such as optical flow. By minimizing the energy function, a two-dimension vector $(u,v)_p$ representing the flow of pixel $p$ can be found. Following the same idea, the matching-based algorithm used in this thesis particularly measures intensity differences in paired points, which can be thought of the data term. The regularization term usually depends on a transformation of points.
+In driver assistance systems, two cameras separated horizontally and aligned without relative rotation are used to capture outdoor scenes. By comparing two different image frames at a time, objects on left frames can be found on right frames with respective displacements. This illustrates the whole concept of disparity estimation: to compute corresponding displacements
+for all points in left images, which probably appear in right images.
+
+Variational methods, formulating energy in terms of data differences and regularizations, are popular in estimating the motion of observed structures such as optical flow. By minimizing the energy function, a scalar disparity representing the relative depth can be found. Also, the matching-based algorithm used here particularly measures intensity differences in paired points, which can be thought of the data term. The regularization term usually depends on a transformation of points.
 
 The relevant mathematical models of the semi-global method will be presented in this section. For outdoor scenes, a cost function proposed by K. Yamaguchi[1] behaves potentially accurate on the KITTI benchmark. As already mentioned, the cost function can be replaced with the original one from Hirschmuller[2].
 
